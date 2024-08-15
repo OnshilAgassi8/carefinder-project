@@ -1,68 +1,15 @@
 //import React from "react";
 //import Register from "./Register";
-import { Link } from "react-router-dom";
-import Logo from "../assets/Logo.jpg";
+import Navbar from "./Navbar";
 import ExperiencedDoctors from "../assets/ExperiencedDoctors.jpg";
 import HighCustomerSatifaction from "../assets/HighCustomerSatifaction.jpg";
 import PharmaTeam from "../assets/PharmaTeam.jpg";
+import Footer from "./footer";
 
 export default function Home() {
   return (
     <>
-      <div className="bg-white shadow-md py-4">
-        <header className="container mx-auto flex flex-wrap justify-between items-center px-4">
-          <div className="flex items-center">
-            <img src={Logo} alt="Logo" className="h-10 w-auto" />
-            <button
-              className="text-gray-600 text-2xl ml-4 lg:hidden"
-              aria-label="Toggle menu"
-            >
-              <i className="fas fa-bars"></i>
-            </button>
-          </div>
-          <nav className="w-full lg:w-auto">
-            <ul className="flex flex-col lg:flex-row lg:space-x-6 text-gray-800 lg:mt-0 mt-4">
-              <li>
-                <a href="#" className="hover:text-blue-500 py-2">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-blue-500 py-2">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="hover:text-blue-500 py-2">
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a href="#about_us" className="hover:text-blue-500 py-2">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#contact_us" className="hover:text-blue-500 py-2">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-4 lg:mt-0">
-            <Link to="/Register">
-              <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full lg:w-auto">
-                Register
-              </button>
-            </Link>
-            <Link to="/Login">
-              <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full lg:w-auto">
-                Login
-              </button>
-            </Link>
-          </div>
-        </header>
-      </div>
+    <Navbar />
 
       <div className="bg-gray-100 py-12">
         <div className="container mx-auto text-center px-4">
@@ -106,8 +53,7 @@ export default function Home() {
               Experienced Doctors
             </h5>
             <p className="text-gray-600 mt-2 text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
-              erat nec leo lobortis blandit.
+            At Carefinder, we connect you with highly experienced doctors who are dedicated to providing exceptional medical care. Our network of professionals includes specialists across various fields, ensuring you receive the expertise you need for your health and well-being. Trust Carefinder to help you find top-rated doctors who prioritize your health with years of experience and proven track records.
             </p>
           </div>
           <div className="text-center">
@@ -120,8 +66,7 @@ export default function Home() {
               High Customer Satisfaction
             </h5>
             <p className="text-gray-600 mt-2 text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
-              erat nec leo lobortis blandit.
+            Customer satisfaction is our top priority. We pride ourselves on delivering a seamless healthcare experience by connecting users with trusted hospitals and specialists across Nigeria. Our platform is designed with user feedback in mind, ensuring easy navigation, accurate information, and reliable service. With a focus on quality care and personalized support, Carefinder consistently receives high ratings and positive reviews from satisfied users.
             </p>
           </div>
           <div className="text-center">
@@ -134,90 +79,15 @@ export default function Home() {
               Pharma Team
             </h5>
             <p className="text-gray-600 mt-2 text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
-              erat nec leo lobortis blandit.
+            The dedicated Pharma team of our Carefinder app is here to support your medication needs. Our experts work closely with trusted pharmacies to ensure that you have access to safe, effective, and affordable medicines. Whether you need prescription refills, medication advice, or information on drug availability, our Pharma team is committed to delivering timely and reliable assistance, so you can focus on your health with confidence.
             </p>
           </div>
         </div>
       </div>
 
-      <footer className="bg-blue-500 text-white py-8">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-center md:text-left px-4">
-          <div>
-            <h4 className="text-lg md:text-xl font-semibold">
-              About CareFinder
-            </h4>
-            <p className="mt-2 text-sm md:text-base">
-              CareFinder is dedicated to helping you find the best healthcare
-              facilities near you. Whether you need to find, export, or share
-              hospital information, we’ve got you covered.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-lg md:text-xl font-semibold">Quick Links</h4>
-            <ul className="mt-2 text-sm md:text-base space-y-2">
-              <li>
-                <a href="#home" className="hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:underline">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#about-us" className="hover:underline">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#contact_us" className="hover:underline">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg md:text-xl font-semibold">Contact Us</h4>
-            <p className="mt-2 text-sm md:text-base">
-              Email: support@carefinder.com
-            </p>
-            <p className="text-sm md:text-base">
-              Phone: +229 51 74 06 53 / +234 70 7849 0070
-            </p>
-            <div className="mt-4">
-              <a
-                href="#facebook"
-                className="text-white hover:text-gray-300 mx-2"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="#twitter"
-                className="text-white hover:text-gray-300 mx-2"
-              >
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a
-                href="#linkedin"
-                className="text-white hover:text-gray-300 mx-2"
-              >
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="#instagram"
-                className="text-white hover:text-gray-300 mx-2"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="text-center mt-8 text-sm">
-          <p>&copy; 2024 CareFinder. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
+      
     </>
   );
 }
+

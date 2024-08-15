@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Resetpassword from './components/Resetpassword';
 import './App.css';
+import MyHospitals from './components/Hospitals';
 
 
 const App: React.FC = () => {
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/resetpassword" element={<Resetpassword/>} />
+        <Route path="/hospitals" element={<MyHospitals />}/>
       </Routes>
     </Router>
   );

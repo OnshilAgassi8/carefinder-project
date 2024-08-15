@@ -1,31 +1,55 @@
-export default function Resetpassword() {
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold text-center mb-6">Reset Password</h2>
-        <form action="" className="space-y-4">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter email"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Send Reset Link
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getAuth, confirmPasswordReset } from 'firebase/auth';
+
+const ResetPassword: React.FC = () => {
+    const [newPassword, setNewPassword] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+    const [oobCode, setOobCode] = useState<string | null>(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const code = queryParams.get('oobCode');
+        if (code) {
+            setOobCode(code);
+        } else {
+            setMessage('Invalid or missing password reset code.');
+        }
+    }, [location]);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!oobCode) return;
+
+        const auth = getAuth();
+
+        try {
+            await confirmPasswordReset(auth, oobCode, newPassword);
+            setMessage('Password has been reset successfully. You can now log in.');
+            navigate('/login'); // Redirect to the login page after successful password reset
+        } catch (error) {
+            setMessage('Error resetting password. Please try again.');
+        }
+    };
+
+    return (
+        <div>
+            <h2>Reset Password</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="Enter new password"
+                    required
+                />
+                <button type="submit">Reset Password</button>
+            </form>
+            {message && <p>{message}</p>}
+        </div>
+    );
+};
+
+export default ResetPassword;
