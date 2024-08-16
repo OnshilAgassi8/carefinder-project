@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../assets/google-maps.svg'; 
 
 interface HospitalCardProps {
     name: string;
