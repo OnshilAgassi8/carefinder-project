@@ -35,20 +35,32 @@ const ResetPassword: React.FC = () => {
     };
 
     return (
-        <div>
-            <h2>Reset Password</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    placeholder="Enter new password"
-                    required
-                />
-                <button type="submit">Reset Password</button>
-            </form>
-            {message && <p>{message}</p>}
-        </div>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
+        <h2 className="text-2xl font-bold text-center mb-6">Reset Password</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            placeholder="Enter new password"
+            required
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Reset Password
+          </button>
+        </form>
+        {message && (
+          <p className="mt-4 text-center text-green-500 font-semibold">
+            {message}
+          </p>
+        )}
+      </div>
+    </div>
     );
 };
 
