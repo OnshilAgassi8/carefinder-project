@@ -3,7 +3,7 @@ import HospitalList from "./HospitalLists";
 import Pagination from "./Pagination";
 import { CSVLink} from "react-csv";
 import MarkdownEditor from "./MarkdownEditor";
-import Navbar from "./Navbar"
+
 import Footer from "./footer";
 
 const SkeletonCard: React.FC = () => (
@@ -108,11 +108,10 @@ const SkeletonCard: React.FC = () => (
     };
   
     return (
+        <div>
       <section className="bg-Primary py-8 md:py-20 w-full ">
         {/* Floating container */}
-        <Navbar />
-        <br />
-        <br />
+        
         <div className="container mx-auto px-4 md:px-8">
           <h2 className="text-Grey/800 text-2xl font-bold md: text-3xl text-center  mb-6">
             Hospitals in Nigeria
@@ -190,8 +189,11 @@ const SkeletonCard: React.FC = () => (
             </div>
           </div>
         </div>
-        <Footer />
+
       </section>
+
+      <Footer />
+    </div>
     );
   };
   
